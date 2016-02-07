@@ -13,7 +13,7 @@ Step-by-step procedure
 1. Place the script in /usr/lib/zabbix/alertscripts/ directory on your Zabbix server.
 2. Make it executable and set ownership for zabbix user: 
 
-         **$ chmod 755 zabbix-slack.sh && chown zabbix:zabbix zabbix-slack.sh**
+         $ chmod 755 zabbix-slack.sh && chown zabbix:zabbix zabbix-slack.sh
          
 3. Log into Slack and Add Incoming Webhook Integration to your channel.
 4. Copy Webhook URL and paste it at the beginning of the script (slack_url variable)
@@ -45,7 +45,7 @@ Step-by-step procedure
 
 6. Restart zabbix-server service on Zabbix server: 
 
-         **$ service zabbix-server restart**
+         $ service zabbix-server restart
 
 
     
