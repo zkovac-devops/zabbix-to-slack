@@ -35,6 +35,7 @@ Step-by-step procedure
     Click Add
     
    c) Last step is to create an action: Configuration --> Actions --> Click on existing name or Create action button
+      
       On Action tab, use following:
     
     * **Default subject**: {TRIGGER.STATUS}
