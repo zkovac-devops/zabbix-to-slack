@@ -51,3 +51,7 @@ Step-by-step procedure
 Output example
 ==============
 ![alt tag](http://goo.gl/VWlNMR "Zabbix-Slack notification example")
+
+**Tip:** You can download [Zabbix logo](https://jujucharms.com/_icon/120/zabbix-frontend.png) and add it to your Webhook Integration Settings on Slack, so that your output will be nicer.
+
+![alt tag](http://goo.gl/jqt7bR "Nottification with Zabbix logo")
