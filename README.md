@@ -47,5 +47,6 @@ Step-by-step procedure
 
          $ service zabbix-server restart
 
-
-    
+Output example
+==============
+![alt tag](http://goo.gl/VWlNMR "Zabbix-Slack notification example")
