@@ -15,6 +15,7 @@ Step-by-step procedure
 3. Log into Slack and Add Incoming Webhook Integration to your channel.
 4. Copy Webhook URL and paste it at the beginning of the script (slack_url variable)
 5. Log into Zabbix Web-UI frontend
+   
    a) Navigate to Administration --> Media types and click Create media type button in the upper right corner
    
     * **Name**: Slack
@@ -24,7 +25,9 @@ Step-by-step procedure
    b) Navigate to Administration --> Users --> Click on member you'd like to add media to --> Go to Media tab
 
     * **Type**: Slack
-    * **Send to**: #alerts      # or whatever your channel name is
+    * **Send to**: #alerts      
+    
+    Note: #alerts is a slack's channel name, so use the one that fits your channel name
     
     Click Add
     
