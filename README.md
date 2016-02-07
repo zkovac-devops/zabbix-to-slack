@@ -30,7 +30,7 @@ Step-by-step procedure
     * **Type**: Slack
     * **Send to**: #alerts      
     
-    Note: #alerts is a slack's channel name, so use the one that fits your channel name
+    **Note:** #alerts is a slack's channel name, so use the one that fits your channel name
     
     Click Add
     
