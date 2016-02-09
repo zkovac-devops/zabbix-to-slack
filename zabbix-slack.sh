@@ -16,6 +16,7 @@ zabbix_trigger_time=`echo $3 | cut -d '@' -f2`
 zabbix_trigger_severity=`echo $3 | cut -d '@' -f3`
 zabbix_host_name=`echo $3 | cut -d '@' -f4`
 zabbix_trigger_message=`echo $3 | cut -d '@' -f5`
+zabbix_event_age=`echo $3 | cut -d '@' -f6`
 
 # Change Slack message's attachment color depending on the severity
 
@@ -51,9 +52,17 @@ fi
 
 # Define payload to be used in your curl request to Slack Webhook
 
-payload="payload={\"channel\": \"${slack_channel}\", \"username\": \"${slack_username}\", \"attachments\":[{\"fallback\":\"${zabbix_trigger_status}\",\"text\":\"${zabbix_trigger_status}\", \"fields\":[{\"title\":\"Date\",\"value\":\"${zabbix_trigger_date}\",\"short\":false},{\"title\":\"Time\",\"value\":\"${zabbix_trigger_time}\",\"short\":false},{\"title\":\"Hostname\",\"value\":\"${zabbix_host_name}\",\"short\":false},{\"title\":\"Trigger severity\",\"value\":\"${zabbix_trigger_severity}\",\"short\":false},{\"title\":\"Trigger message\",\"value\":\"${zabbix_trigger_message}\",\"short\":false}],\"color\":\"${color}\"}]}"
+payload_problem="payload={\"channel\": \"${slack_channel}\", \"username\": \"${slack_username}\", \"attachments\":[{\"fallback\":\"${zabbix_trigger_status}\",\"text\":\"${zabbix_trigger_status}\", \"fields\":[{\"title\":\"Date\",\"value\":\"${zabbix_trigger_date}\",\"short\":false},{\"title\":\"Time\",\"value\":\"${zabbix_trigger_time}\",\"short\":false},{\"title\":\"Hostname\",\"value\":\"${zabbix_host_name}\",\"short\":false},{\"title\":\"Trigger severity\",\"value\":\"${zabbix_trigger_severity}\",\"short\":false},{\"title\":\"Trigger message\",\"value\":\"${zabbix_trigger_message}\",\"short\":false}],\"color\":\"${color}\"}]}"
+
+payload_ok="payload={\"channel\": \"${slack_channel}\", \"username\": \"${slack_username}\", \"attachments\":[{\"fallback\":\"${zabbix_trigger_status}\",\"text\":\"${zabbix_trigger_status}\", \"fields\":[{\"title\":\"Date\",\"value\":\"${zabbix_trigger_date}\",\"short\":false},{\"title\":\"Time\",\"value\":\"${zabbix_trigger_time}\",\"short\":false},{\"title\":\"Duration\",\"value\":\"${zabbix_event_age}\",\"short\":false},{\"title\":\"Hostname\",\"value\":\"${zabbix_host_name}\",\"short\":false},{\"title\":\"Trigger severity\",\"value\":\"${zabbix_trigger_severity}\",\"short\":false},{\"title\":\"Trigger message\",\"value\":\"${zabbix_trigger_message}\",\"short\":false}],\"color\":\"${color}\"}]}"
+
 
 # POST data to Slack Webhook using curl
 
-curl -m 5 --data-urlencode "${payload}" $slack_url
+if [ "$zabbix_trigger_status" == 'OK' ]
+then
+        curl -m 5 --proxy $https_proxy --data-urlencode "${payload_ok}" $slack_url
+else
+        curl -m 5 --proxy $https_proxy --data-urlencode "${payload_problem}" $slack_url
+fi
 echo
