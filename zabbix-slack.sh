@@ -61,8 +61,8 @@ payload_ok="payload={\"channel\": \"${slack_channel}\", \"username\": \"${slack_
 
 if [ "$zabbix_trigger_status" == 'OK' ]
 then
-        curl -m 5 --proxy $https_proxy --data-urlencode "${payload_ok}" $slack_url
+        curl -m 5 --data-urlencode "${payload_ok}" $slack_url
 else
-        curl -m 5 --proxy $https_proxy --data-urlencode "${payload_problem}" $slack_url
+        curl -m 5 --data-urlencode "${payload_problem}" $slack_url
 fi
 echo
