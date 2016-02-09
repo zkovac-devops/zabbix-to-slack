@@ -42,7 +42,7 @@ Step-by-step procedure
     * **Default message**: {DATE}@{TIME}@{TRIGGER.SEVERITY}@{HOST.NAME1}@{TRIGGER.NAME}
     
     * **Recovery subject**: {TRIGGER.STATUS}
-    * **Recovery message**: {DATE}@{TIME}@{TRIGGER.SEVERITY}@{HOST.NAME1}@{TRIGGER.NAME}
+    * **Recovery message**: {DATE}@{TIME}@{TRIGGER.SEVERITY}@{HOST.NAME1}@{TRIGGER.NAME}@{EVENT.AGE}
 
 6. Restart zabbix-server service on Zabbix server: 
 
