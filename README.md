@@ -52,4 +52,4 @@ Output example
 ==============
 **Tip:** You can download [Zabbix logo](https://jujucharms.com/_icon/120/zabbix-frontend.png) and add it to your Webhook Integration Settings on Slack, so that your output will be nicer.
 
-![alt tag](http://goo.gl/g6C6QR "Nottification with Zabbix logo")
+![alt tag](https://doc-0s-28-docs.googleusercontent.com/docs/securesc/qol0cir65agtsqmr5ffij6uu1qvqt372/gjdvhirg6liuq5l1nd4fdsjtgbgh6frr/1473760800000/03274676273427192440/03274676273427192440/0B0DtJDDGbEc4cGpaakt2S0p2ZVU?e=view&nonce=hgbuq8er5oaii&user=03274676273427192440&hash=f48f2krbf48n71jus61ut184l4dd5vi8 "Nottification with Zabbix logo")
