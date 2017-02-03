@@ -20,31 +20,31 @@ zabbix_event_age=`echo $3 | cut -d '@' -f6`
 
 # Change Slack message's attachment color depending on the severity
 
-if [ "$zabbix_trigger_status" == 'OK' ]
+if [ "${zabbix_trigger_status}" == 'OK' ]
 then
         color="#4AC948"
 
-elif [ "$zabbix_trigger_severity" == "Not classified" ]
+elif [ "${zabbix_trigger_severity}" == "Not classified" ]
 then
         color="#DBDBDB"
 
-elif [ "$zabbix_trigger_severity" == "Information" ]
+elif [ "${zabbix_trigger_severity}" == "Information" ]
 then
         color="#D6F6FF"
 
-elif [ "$zabbix_trigger_severity" == "Warning" ]
+elif [ "${zabbix_trigger_severity}" == "Warning" ]
 then
         color="#FFF6A5"
 
-elif [ "$zabbix_trigger_severity" == "Average" ]
+elif [ "${zabbix_trigger_severity}" == "Average" ]
 then
         color="#FFB689"
 
-elif [ "$zabbix_trigger_severity" == "High" ]
+elif [ "${zabbix_trigger_severity}" == "High" ]
 then
         color="#FF9999"
 
-elif [ "$zabbix_trigger_severity" == "Disaster" ]
+elif [ "${zabbix_trigger_severity}" == "Disaster" ]
 then
         color="#FF3838"
 
@@ -59,10 +59,9 @@ payload_ok="payload={\"channel\": \"${slack_channel}\", \"username\": \"${slack_
 
 # POST data to Slack Webhook using curl
 
-if [ "$zabbix_trigger_status" == 'OK' ]
+if [ "${zabbix_trigger_status}" == 'OK' ]
 then
-        curl -m 5 --data-urlencode "${payload_ok}" $slack_url
+        curl -m 5 --data-urlencode "${payload_ok}" ${slack_url}
 else
-        curl -m 5 --data-urlencode "${payload_problem}" $slack_url
+        curl -m 5 --data-urlencode "${payload_problem}" ${slack_url}
 fi
-echo
