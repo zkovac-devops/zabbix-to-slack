@@ -24,13 +24,20 @@ Step-by-step procedure
     * **Name**: Slack
     * **Type**: Script
     * **Script name**: zabbix-slack.sh
+
+         **Important**: On Zabbix 3.x or higher, media types are configured slightly different.
+                        You have to define the parameters sent to the zabbix-slack.sh script, as follows:
+
+                  {ALERT.SENDTO}
+                  {ALERT.SUBJECT}
+                  {ALERT.MESSAGE}
   
    b) Navigate to Administration --> Users --> Click on member you'd like to add media to --> Go to Media tab
 
     * **Type**: Slack
-    * **Send to**: #alerts      
+    * **Send to**: #zabbix-alerts      
     
-    **Note:** #alerts is a slack's channel name, so use the one that fits your channel name
+    **Note:** #zabbix-alerts is a slack's channel name, so use the one that fits your channel name
     
     Click Add
     
